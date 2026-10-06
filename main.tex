@@ -1,0 +1,576 @@
+%%% Document Formatting
+\documentclass[11pt,fleqn]{article}
+\usepackage[a4paper,
+            bindingoffset=0.2in,
+            left=0.75in,
+            right=0.75in,
+            top=0.8in,
+            bottom=0.8in,
+            footskip=.25in]{geometry}
+\setlength\parindent{10pt}
+
+%%% Imports
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{dsfont}
+\numberwithin{equation}{section}
+\usepackage{mathtools}
+\usepackage{cancel}
+\usepackage{empheq}
+\usepackage{algorithm}
+\usepackage{algpseudocode}  % preamble
+
+% Visualization
+\usepackage{graphicx}
+
+
+%%% Formatting
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={SCSI Lecture Notes},
+    pdfpagemode=FullScreen,
+}
+\urlstyle{same}
+
+%%% Custom Environments
+ 
+
+% theorems
+% Dependencies
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em}
+
+\theoremstyle{definition}
+
+
+\makeatother
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em}
+
+
+\theoremstyle{definition}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+    }
+]{thmgreenbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+    }
+]{thmbluebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue
+    }
+]{thmblueline}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{RawSienna!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+    }
+]{thmredbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{RawSienna!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!1,
+    },
+    qed=\qedsymbol
+]{thmproofbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
+    },
+]{thmexplanationbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{Plum!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=Plum, backgroundcolor=Plum!5,
+    }
+]{thmpurplebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{Sepia!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=Sepia, backgroundcolor=Sepia!5,
+    }
+]{thmsepiabox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen
+    }
+]{thmgreenline}
+
+% \declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, mdframed={ nobreak } ]{thmgreenbox}
+% \declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, mdframed={ nobreak } ]{thmredbox}
+% \declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont]{thmbluebox}
+% \declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont]{thmblueline}
+% \declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, numbered=no, mdframed={ rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol ]{thmproofbox}
+% \declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, numbered=no, mdframed={ nobreak, rightline=false, topline=false, bottomline=false } ]{thmexplanationbox}
+
+\declaretheorem[style=thmgreenbox, name=Definition]{definition}
+\declaretheorem[style=thmgreenbox, name=Assumption]{assumption}
+\declaretheorem[style=thmbluebox, numbered=no, name=Example]{eg}
+\declaretheorem[style=thmredbox, name=Proposition]{prop}
+\declaretheorem[style=thmredbox, name=Theorem]{theorem}
+\declaretheorem[style=thmredbox, name=Lemma]{lemma}
+\declaretheorem[style=thmredbox, numbered=no, name=Corollary]{corollary}
+\declaretheorem[style=thmpurplebox, name=Problem]{problem}
+\declaretheorem[style=thmsepiabox, numbered=no, name=Fact]{fact}
+\declaretheorem[style=thmgreenline, name=Property]{property}
+
+\declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+
+
+\declaretheorem[style=thmexplanationbox, name=Proof]{tmpexplanation}
+\newenvironment{explanation}[1][]{\vspace{-10pt}\begin{tmpexplanation}}{\end{tmpexplanation}}
+
+\declaretheorem[style=thmblueline, numbered=no, name=Remark]{remark}
+\declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
+
+\newmdenv[ 
+  topline=false,
+  bottomline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{sidework}
+
+%%%%% ------------------ %%%%%
+%%% Title
+\title{Emerging Directions in Probabilistic Modeling}
+\author{Clark Miyamoto (cm6627@nyu.edu)}
+\date{\today}
+\begin{document}
+
+
+\maketitle
+
+\tableofcontents
+
+
+\newpage
+\section{Arthur Gretton: Gradient Flows on MMD}
+\begin{definition}
+	[Maximum Mena Discrepancy] Let $\mathcal H$ be a Hilbert space
+	\begin{align}
+		\sup_{\|f\| \leq 1} [\mathbb E_\nu f(X) - \mathbb E_{\nu^*} f(Y)]
+	\end{align}
+	where $f(x) = \langle f, \varphi(x) \rangle_{\mathcal H}$. Which implicitly defines a kernel $\langle \varphi(x), \varphi(x')\rangle_{\mathcal H} := k(x, x')$
+\end{definition}
+This has an equivalent closed form expression
+\begin{align}
+	\textsf{MMD}^2(\nu, \nu^*) = \mathbb E_\nu k(x,x') + \mathbb E_{\nu^*}k(y, y') - 2 \mathbb E_{\nu, \nu^*} k (x,y)
+\end{align}
+\begin{definition}
+	[Wittness Function]
+	\begin{align}
+		f^*(x) \propto \mathbb E_{\nu}[k (X,x)]- \mathbb E_{\nu^*}[k(Y, x)]
+	\end{align}
+\end{definition}
+\paragraph{Application: NN Training Dynamics}
+Consider a probablity measure on neural network parameters
+\begin{align}
+	\nu_N = \frac{1}{N} \sum_{i=1}^N \delta_{Z_i}
+\end{align}
+You want to understand the curve $\nu_N^t$ describe by gradient descent
+\begin{align}
+	Z_i^{t+1} = Z_i^t - \gamma \nabla \mathcal F(\nu_N^t), \quad \mathcal F = \textsf{MSE}(\nu_N^t; \mathcal D)
+\end{align}
+In the infinite width limit, the average over the empirical measure because an average over a full measure.
+\begin{align}
+	\mathcal F(\nu) \overset{N \to \infty}{\to} \mathbb E_{x,y} \|y - \mathbb E_{Z \sim \nu} \phi_Z(x)\|^2
+\end{align}
+\begin{assumption}
+	Assert that $\nu, \nu^* \in \mathcal P_2(\mathbb R^d)$
+\end{assumption}
+Assume the well specified setting, that $y(x) = \mathbb E_{U \sim \nu^*}[\phi_U(x)]$, so the loss function becomes equivalent to \textsf{MMD}
+\begin{align}
+	\mathcal F & = \frac{1}{2} \textsf{MMD}^2(\nu, \nu^*)\\
+	& = \frac{1}{2 \mathbb E}_\nu k(x,x') + \frac{1}{2} \mathbb E_{\nu^*} k (y, y') - \mathbb E_{\nu, \nu^*} k(x,y)
+\end{align}
+The first \& 2nd term become self interaction terms, and the 3rd term is an interaction between particles of a different type.
+
+\paragraph{Wasserstein Gradient Flow}
+In \emph{Log Concave Sampling} by Chewi, we can derive the Wasserstein gradient flow, which gives a continuity equation
+\begin{align}
+	\mathcal F((\textsf{Id} + \epsilon h)_{\#} \nu ) = \mathcal F(\nu) + \epsilon \langle \nabla_{W_2} \mathcal F(\nu), h\rangle_{L^2(\nu)} + O(\epsilon)\\
+	\implies \partial_t \nu_t = \nabla \cdot (\nu_t \nabla_{W_2} \mathcal F(\nu_t))
+\end{align}
+Which is equivalent to the derivative to the first variation of $\mathcal F$.
+\begin{fact}
+	First variation $\mathcal F'$ of $\mathcal F = \frac{1}{2} \textsf{MMD}^2$, this is the witness function! 
+\end{fact}
+
+\paragraph{Back to NN training dynamics in continuous time}
+So the continuous time population dynamics of the neurons becomes a gradient descent on the witness function
+\begin{assumption}
+	Assume $\nu^*$ satisfies the Poincare inequality. 
+\end{assumption}
+\begin{sidework}
+	Recall Poincare inequality tells us continuous time Langevin converges in $\textsf{KL}$.
+\end{sidework}
+\begin{assumption}
+	Suppose $\exists q_t \in L^2(\nu^*)$ such that
+	\begin{align}
+		\frac{d\nu_t}{d\nu^*} - 1 = T_{\nu^*}^r q_t, \quad \| q_t \|_{L^2(\nu^*)} < Q
+	\end{align}
+	The authors were not able to prove this condition holds for all time for all problems...
+\end{assumption}
+
+
+\begin{definition}
+	\begin{align}
+		\textsf{DrMMD}^2(\nu, \nu^*) = (1 + \lambda) 
+	\end{align}
+	where $\lim_{\lambda \to 0} \textsf{DrMMD}^2 = \chi^2$ and $\lim_{\lambda \to \infty} \textsf{DrMMD}^2 = \textsf{MMD}^2$.
+\end{definition}
+This gives you a near-global converge of the $\textsf{DrMMD}$ flow
+
+
+\paragraph{Discretization Error}
+You can do this...
+
+\subsection{Sobolev MMD Flow}
+\begin{assumption}
+	The same $\alpha, Q$ for all time $t$
+	\begin{align}
+		m_{\nu_t} - m_{\nu^*} = S_{\nu_t}^{\alpha/2} q_t
+	\end{align}
+\end{assumption}
+
+\paragraph{Results}
+The \textsf{DrMMD} flow converges much faster than the $\textsf{MMD}$ flow.
+
+
+\paragraph{Appendix} MMD is not displacement convex but is mixture convex.
+\begin{align}
+	\mathcal F(t \nu + (1-t) \mu) \leq t \mathcal F(\nu) + (1-t) \mathcal F(\mu)
+\end{align} 
+This corresponds to a "mass teleportation" convexity. \textcolor{red}{Think more about this...}
+
+
+
+\newpage
+\section{David Alvarez-Melis: Optimal Transport for Reasoning about Distribution}
+Three tasks this talk will attempt to handle
+\begin{enumerate}
+	\item Which training distribution is closest to the target distribution?
+	\item Can we construct a distribution which is a natural "interpolation" between two distributions?
+	\item Can we predict/infer/optimize with models which takes distributions as inputs.
+\end{enumerate}
+
+\paragraph{Transfer learning} Typically, we can use OT to determine if two distributions $\mu, \nu$ are similiar or not (in Wasserstein distance). Typically if $\mu,\nu$ are empirical measures, you can use Sinkhorn algorithm to compute this; but what if $\mu$ and $\nu$ are datasets with different labels (e.g. MNIST vs FashionMNIST) 
+\begin{definition}
+	\begin{align}
+		d(y, y') = W_2(p(x|y = y) , p(x'|y=y'))
+	\end{align}
+	
+\end{definition}
+
+\paragraph{Distribution DEQs}
+Your object is to find $\theta$ such that $\mu^*_\rho = F_\theta(\mu^*_\theta, \rho)$. Something you can do is to write it as the loss function
+\begin{align}
+	\frac{1}{2}\textsf{MMD}^2(\mu, F_\theta(\mu, \rho))
+\end{align}
+
+
+\newpage
+\section{}
+\paragraph{Optimization}
+Consider the proximal form of gradient descent
+\begin{align}
+	x_{k+1} & = x_k - \tau \nabla f(x_k)\\
+	& = \arg \min_{x} \frac{1}{2}\|x - x_k\|^2 + \tau \langle \nabla f(x_k), x-  x_k \rangle
+\end{align}
+
+\begin{definition}
+	[Bregman Divergence] Let $\phi : \mathbb R^d \to \mathbb R$ be convex
+	\begin{align}
+		D_\phi(x,y) = \phi(x) - \phi(y) - \langle \nabla \phi(y) , x-y\rangle
+	\end{align}
+\end{definition}
+This defines the \emph{Mirror Descent algorithm}
+\begin{align}
+	x_{k+1} & = \arg \min_x D_\phi(x, x_k) +\tau \langle \nabla f(x_k), x -x_k\rangle\\
+	& = \nabla \phi^*(\nabla \phi(x_k) - f \nabla f(x_k))
+\end{align}
+where $\phi^*$ is the convex conjugate of $\phi$.
+
+\begin{definition}
+	[DC] $f$ is DC (difference-of-convex) function if there exists $f^-, f^+$ such that 
+	\begin{align}
+		f = f^+ - f^-
+	\end{align}
+\end{definition}
+There is an algorithm to minimize DC functions. This is called the Convex-Concave CCP algorithm.
+
+\paragraph{Wasserstein Geometry}
+More or less the same as prior talks...
+
+\paragraph{Gradient Descent in Wasserstein Space}
+Consider the Mirror Descent algorithm but in probability space
+\begin{align}
+	T_{k+1} & = \arg \min_{T \in L^2(\mu_k)} \frac{1}{2}\|T -\textsf{Id}\|^2_{L^2(\mu_k)} + \tau\langle \nabla_{W_2} \mathcal F(\mu_k), T - \textsf{Id}\rangle_{L^2(\mu_k)}\\
+\mu_{k+1} & = (T_{k+1})_{\#} \mu_k
+\end{align}
+
+
+
+\paragraph{Convexity}
+\begin{definition}
+	Let $\alpha \geq 0$, teh functional is $\alpha$-totally convex if for all $\mu \in \mathcal P_2(\mathbb R^d)$ if
+	\begin{align}
+		D_\mu(T,S) \geq \frac{\alpha}{2}\|T - S\|_{L^2(\mu)}^2
+	\end{align}
+	where $D$ is the Bregmann divergence
+\end{definition}
+
+\begin{eg}
+	Functionals which aren't convex (in general)
+	\begin{itemize}
+		\item $W_2^2$ is convex only along one curve
+		\item $\textsf{KL}$ when reference measure is non-convex
+		\item $\textsf{MMD}$
+	\end{itemize}
+\end{eg}
+So instead let's generalize our notion of DC functions, into DC functionals. Consider the decomposition
+\begin{align}
+	\mathcal F(\mu) = \frac{1}{2} \textsf{MMD}^2(\mu, \nu) = \mathcal V_k(\mu) + \mathcal W_k(\mu) + \textsf{const}
+\end{align}
+where $\mathcal V_k(\mu) = \mathbb E[V_k]$ and
+\begin{assumption}
+	Let's assume we only focus on kernel that are only translation invariant $k(x,y) = \psi(x-y)$
+\end{assumption}
+So now we have the DC compositon $\mathcal F = \mathcal F^+ - \mathcal F^-$
+
+
+\newpage
+\section{Claire Boyer: Theoretical Insights into how Attention Learns Structure}
+\paragraph{Single-Location Regression}
+
+Research Question: Why does attention work well for NLP tasks? \\
+\\
+To answer this question, they wanted to design a toy-dataset that models token-wise sparsity and randomness in the position of relevant information. All the while, keeping the inference "linear" \textcolor{red}{(in what space?)}
+\begin{definition}
+	[Single Location Regression] Consider $L$ random tokens $(X_1, ..., X_L) \in (\mathbb R^{d})^L$. The output $Y \in \mathbb R$ is given by
+	\begin{align}
+		Y = X_{J_0}^T v^* + \xi
+	\end{align}
+	where $J_0$ is a random index for $X$. To be specific it is a discrete random variable on $[L]$ and conditionally on $J_0$
+	\begin{align}
+		X_{J_0} & \sim \mathcal N \left( \sqrt{d/2} k^*, \gamma^2 \mathbb I_d \right)\\
+		X_\ell & \sim \mathcal N(0, \mathbb I_d), \quad \ell \neq J_0
+	\end{align}
+	meaning $\xi \sim \mathcal N(0, \epsilon^2)$.\\
+	\\
+	Notationally, $(\mathbb X, Y) \sim \textsf{SLR}(k^*, v^*)$. We want to find $k^*, v^*$.
+\end{definition}
+Consider a single head attention operation for a prompt $\mathbb X = (X_1, ..., X_L)$
+\begin{align}
+	T_\lambda^{(K,Q,V)}[\mathbb X](x_{q}) = \frac{\sum_\ell \exp \left( \lambda \langle Q x_q, K X_\ell \rangle \right) V X_\ell}{\sum_{\ell'} \exp \left( \lambda \langle Q x_q, K X_{\ell'} \rangle \right)}
+\end{align}
+For example consider hte output of the first token $\textsf{[CLS]}$ this token can be hidden inside the temperature $\lambda$. You'll notice this makes the optimization of $\lambda, Q, K ,V$ more difficult. So instead they replace the softmax by a component-wise non-linearity
+\begin{align}
+	T_\lambda^{(K,V)} = \textsf{erf}(...)
+\end{align}
+They now declare the dynamics on the riskk function
+\begin{align}
+	\mathcal R_\lambda(k, v) = \mathbb E_{\mathbb X, Y \sim \textsf{SLR}(k^*, v^*)} \left[ \left( Y - T_\lambda^{(k,v)}[\mathbb X] \right)^2 \right]
+\end{align}
+They find
+\begin{fact}
+	[Informal] 
+	\begin{itemize}
+		\item With proper initialization \& step size, projected gradient descent on $\mathcal R_\lambda$ satisfies
+	\begin{align}
+		(k_t, v_t) \overset{t \to \infty}{\to} \pm (k^*, v^*)
+	\end{align}
+	\item As $d \to \infty$, the predictor $T_\lambda^{(k^*, v^*)}$ is asymptotically Bayes optimal.
+	\end{itemize}
+\end{fact}
+
+\paragraph{Measure-Based View} To make a nicer claim without using the $\textsf{erf}$ approximation, they made a measure-based connection to the attention operator.
+\begin{align}
+	T^{K,Q,V} = \frac{\sum_{\ell} \exp(z^T_\ell K^T Q z_q) V z_\ell}{\sum_{\ell'} \exp(z_\ell^T K^T Q z_q)} \to \frac{\int \exp(\tilde z^T K^T Q z) V \tilde z \, d\mu(\tilde z)}{\int \exp(\tilde z^T K^T Q z) \, d\mu(\tilde z)}
+\end{align}
+
+\begin{fact}
+	Assume the input measure is Gaussian. $\mu = \mathcal N(m, \Sigma)$. Then the large-limit attention operator if just an affine map
+	\begin{align}
+		T^{K,Q,V} = V m + V \Sigma K^T Q z
+	\end{align}
+\end{fact}
+
+\begin{fact}[Informal, Concetration]
+	If $\mu$ and $\nu$ are $\sigma$-sub-Gaussian measures, then there exists constants $c_1, c_2$ depending on $d,V,K,Q$ such that
+	\begin{align}
+		\mathbb E\|T[\hat \mu_L] - T[\mu]\|_{L^2(\mu)}^2 \leq c_1 \sigma^6 \frac{\log L}{L^{c_2 / \sigma^2}}
+	\end{align}
+	Under additional mild assumption, the gradient also concentrates
+	\begin{align}
+		\mathbb E\|\nabla T[\hat \mu] - \nabla T[\mu]\|_{L^2(\nu)}^2 \leq c_1 \sigma^{12} \frac{(\log L)^2}{L^{c_2 / \sigma^2}}
+	\end{align}
+\end{fact}
+
+\paragraph{Training Dynamics}
+Now, the goal is to do the training dynamics analysis in $L \to \infty$, and then bring it back down to finite $L$.
+
+
+
+
+
+\newpage
+\section{Yongxin Chen: Efficient Reinforcement Learning for Diffusion Models}
+In DPO, your objective is to maximize the reward $R$ while staying close to a pretrained model $\pi_{ref}$
+\begin{align}
+	\max_\theta \mathbb E_{c \sim \mathcal D} \mathbb E_{x \sim \pi_{\theta}(\cdot | c)} [R(x,c)] - \beta \mathbb E_{c \sim \mathcal D} \textsf{KL}(\pi_\theta(\cdot | c) \| \pi_{ref}(\cdot | c))
+\end{align}
+For autoregressive LLMs the model factorizes
+\begin{align}
+	\pi_\theta(y | c) = \prod_k \pi_\theta(y_k | y_{<k} , c)
+\end{align} 
+In practice how do you run this optimization? You can do GRPO
+\begin{align}
+	\mathcal L_{GRPO} & = - \mathbb E \left[ \sum_{i,k} \min \left( \rho_{i,k} A_i, \ \textsf{clip} (\rho_{i,k}, 1-\epsilon, 1+ \epsilon)  A_i  \right)\right] +  \beta \textsf{KL}(\pi_\theta \| \pi_{ref})\\
+	\rho_{i,k} & = \frac{\pi_\theta(y_{i,k} | y_{i, < k}, c)}{\pi_{old}(y_{i,k} | y_{i, < k}, c)}\\
+	A_i & = \frac{R(y_i, c) - \textsf{mean}_j R(y_j, c)}{\textsf{std}_j R(y_j, c)}
+\end{align}
+Or a policy gradient
+\begin{align}
+	\mathcal L_{PG} = - \mathbb E \left[  \sum_{ik} A_i \textsf{sg}(\rho_{i,k}) \log \pi_{\theta}(y_{i,k} | y_{i, < k} , c) \right] + \beta \textsf{KL}(\pi_\theta \| \pi_{ref})
+\end{align}
+In diffusion, the token ratio $\rho_{i,k}$ can be taken to be the denoising transition ratio (that is do Euler-Maruyama, and write the conditional proposal induced by that discretization). This is now a ratio of Gaussians, so this can be evaluated analytically
+
+
+\paragraph{Reward-Based Velocity Matching} However in flows, you only have access to $v_\theta$, not $\pi_\theta$. So it'd be nice to have a objective which is a function of $v_\theta$.
+\begin{align}
+	\mathcal L_{RVM} = \mathbb E[r(x_0) \|v_\theta - v\|^2 + \beta(r(x_0)) \| v_\theta - v_{anc}\|^2]i
+\end{align}
+where $v$ is the target velocity (in a stochastic interpolants language, this is $v = \dot I_t$).
+\begin{enumerate}
+	\item RAM: $v_{anc}$ is a frozen reference
+	\item $v_{anc}$ is a lagged EMA of $v_\theta$
+	\item ... \textcolor{red}{Missed this, go back to paper https://arxiv.org/pdf/2608.23664}
+\end{enumerate}
+This doesn't correspond to a proper tilt $p \propto \pi \times e^{\beta r(x)}$, but rather it's just supposed to get you sample that evaluate with high reward.
+ 
+ 
+ 
+\newpage
+\section{Sherry Yang: Reinforcement Learning in High-Cost Environments}
+Research question: How can we run RL when the environment is computationally/time-wise expensive (e.g. recursive self improvement, engineering, etc.)
+
+\paragraph{Reward-Rate Policy Gradients}
+...
+
+\paragraph{MLE-World}
+...
+
+
+\newpage
+\section{Omar Chehab: Flow-based density evaluation in one NFE}
+Goal: Can we use a neural network to learn an probability density function. Previously people use normalizing flows, but we'd like to do this on continuous normalizing flows.
+
+\begin{eg}[Boltzmann Generator in Chemistry]
+	Learn $p_{model}$ from data. Get un-normalie $\tilde p_{target}(x) = \exp(- E(x))$. Do importance sampling; sample $p_{target}$ by reweighting samples from $p_{model}$
+	\begin{align}
+		p_{target}
+(\cdot) \approx \sum_{i} \frac{\frac{\tilde p_{target}}{p_{model}}}{\sum_{j}\frac{\tilde p_{target}(x_{j})}{p_{model}(x_j)}}
+	\end{align}
+\end{eg}
+
+\paragraph{Probability using Flows} In a flow, your neural network parameterizes $v^\theta \approx v$. Recall you can find the density by running
+\begin{align}
+	\log p_1(X_1) = \log p_0(X_0) + \int_0^1 - \nabla \cdot v_t(X_t) \, dt
+\end{align}
+where $X_1 = X_0 + \int_0^1 v_t(X_t) \, dt$. Notice you have to compute an integral; so this could be potentially very expensive.\\
+\\
+In practice, people we do this by using Hutchinson's estimator
+\begin{align}
+	\nabla \cdot v_t(X_t) = \text{Tr}(\nabla v_t(X_t)) = \mathbb E_{\epsilon \sim \mathcal N(0, \mathbb I)} [\epsilon^T \nabla v_t(X_t) \epsilon] \approx \epsilon^T \nabla v_t(X_t) \epsilon
+\end{align}
+which is unbiased but has high variance. Where $\nabla v \in \mathbb R^{d \times d}$ denotes the Jacobian.\\
+\\
+A dumb idea to solve this is to use a neural network to  approximate this
+\begin{align}
+	\mathcal L(\theta) & = \mathbb E\|D_\theta(x_t, t,t) - (-\nabla \cdot v_t(x_t))\|^2\\
+	& = \mathbb E \| D_\theta(x_t, t, t) - \frac{d}{dt} \log p_t(x_t)\|^2\\
+	& = \mathbb E\| D_\theta(x_t, t, t) - (\partial_t \log p_t(x_t) + v_t(x_t)^T \nabla \log p_t(x_t))\|^2
+\end{align}
+See \url{https://arxiv.org/pdf/2606.29110} for more...
+
+\paragraph{Spatial Temporal Methods for Evaluating Densities}
+... 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+buffer
+
+
+
+
+\end{document}
